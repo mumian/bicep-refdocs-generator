@@ -2136,11 +2136,7 @@
       "Title": "SharePoint Subscription / 2019 / 2016 fully configured",
       "Description": "Create a DC, a SQL Server 2025, and from 1 to 5 server(s) hosting a SharePoint Subscription / 2019 / 2016 farm with an extensive configuration, including trusted authentication, user profiles with personal sites, an OAuth trust (using a certificate), a dedicated IIS site for hosting high-trust add-ins, etc... The latest version of key softwares (including Fiddler, vscode, np++, 7zip, ULS Viewer) is installed. SharePoint machines have additional fine-tuning to make them immediately usable (remote administration tools, custom policies for Edge and Chrome, shortcuts, etc...).",
       "Path": "application-workloads/sharepoint/sharepoint-adfs",
-      "ResourceTypes": [
-        "Microsoft.Network/firewallPolicies",
-        "Microsoft.Network/firewallPolicies/ruleCollectionGroups",
-        "Microsoft.Network/virtualNetworks/subnets"
-      ],
+      "ResourceTypes": [],
       "HasBicep": true
     },
     {
@@ -3323,6 +3319,19 @@
       "ResourceTypes": [
         "Microsoft.Compute/virtualMachines/extensions",
         "microsoft.insights/alertrules"
+      ],
+      "HasBicep": false
+    },
+    {
+      "Title": "Gallery image version with UEFI CA 2011 certs",
+      "Description": "This template creates an Azure Compute Gallery, image definition, and image version from a marketplace Linux image with custom UEFI security profile signatures.",
+      "Path": "demos/deploy-linux-acg-image-version-old-uefi",
+      "ResourceTypes": [
+        "Microsoft.Compute/disks",
+        "Microsoft.Compute/galleries",
+        "Microsoft.Compute/galleries/images",
+        "Microsoft.Compute/galleries/images/versions",
+        "Microsoft.Compute/images"
       ],
       "HasBicep": false
     },
@@ -5447,9 +5456,30 @@
       "HasBicep": false
     },
     {
+      "Title": "Creates an ADLess Azure Local 24H2 cluster with SAN Storage",
+      "Description": "This template creates an ADLess Azure Local 24H2 cluster with SAN Storage using an ARM template.",
+      "Path": "quickstarts/microsoft.azurestackhci/create-cluster-adless-san",
+      "ResourceTypes": [],
+      "HasBicep": false
+    },
+    {
+      "Title": "Deploy a Confidential VM (CVM) ready Azure Stack HCI Cluster",
+      "Description": "This template creates a Confidential VM (CVM) ready Azure Stack HCI cluster with confidentialVmIntent enabled.",
+      "Path": "quickstarts/microsoft.azurestackhci/create-cluster-cvm-intent",
+      "ResourceTypes": [],
+      "HasBicep": false
+    },
+    {
       "Title": "creates an Azure Stack HCI 23H2 cluster",
       "Description": "This template creates an Azure Stack HCI 23H2 cluster using an ARM template.",
       "Path": "quickstarts/microsoft.azurestackhci/create-cluster-for-usgov",
+      "ResourceTypes": [],
+      "HasBicep": false
+    },
+    {
+      "Title": "creates an Azure Stack HCI 24H2 rack aware cluster for ALDO",
+      "Description": "This template creates an Azure Stack HCI 24H2 rack aware cluster for ALDO (Azure Local Disconnected Operation) using an ARM template.",
+      "Path": "quickstarts/microsoft.azurestackhci/create-cluster-rac-enabled-disconnected",
       "ResourceTypes": [],
       "HasBicep": false
     },
@@ -8926,7 +8956,7 @@
     },
     {
       "Title": "Deploy Microsoft Discovery infrastructure",
-      "Description": "This template deploys the full Microsoft Discovery stack including a Virtual Network, User-Assigned Managed Identity, Storage Account, role assignments, Supercomputer with a Node Pool, Workspace with a Chat Model Deployment, Storage Container, and Project using the 2026-02-01-preview API.",
+      "Description": "This template deploys the full Microsoft Discovery stack including a Virtual Network, User-Assigned Managed Identity, Storage Account, role assignments, Supercomputer with a Node Pool, Workspace with a Chat Model Deployment, Storage Container, and Project using the 2026-06-01 API.",
       "Path": "quickstarts/microsoft.discovery/discovery-infra-deployment",
       "ResourceTypes": [
         "Microsoft.Authorization/roleAssignments",
@@ -9907,6 +9937,15 @@
       "Path": "quickstarts/microsoft.keyvault/managed-hsm-create",
       "ResourceTypes": [
         "Microsoft.KeyVault/managedHSMs"
+      ],
+      "HasBicep": true
+    },
+    {
+      "Title": "Azure Kubernetes Service (AKS) with Azure Container Linux",
+      "Description": "Deploy a managed cluster with Azure Kubernetes Service (AKS) using Azure Container Linux",
+      "Path": "quickstarts/microsoft.kubernetes/aks-azure-container-linux",
+      "ResourceTypes": [
+        "Microsoft.ContainerService/managedClusters"
       ],
       "HasBicep": true
     },
@@ -12011,8 +12050,8 @@
       "HasBicep": true
     },
     {
-      "Title": "Enable NSG Flow Logs",
-      "Description": "This template create an NSG Flow Logs resource",
+      "Title": "Enable Virtual Network Flow Logs",
+      "Description": "This template creates a virtual network flow log resource.",
       "Path": "quickstarts/microsoft.network/networkwatcher-flowLogs-create",
       "ResourceTypes": [
         "Microsoft.Network/networkWatchers",
@@ -12830,15 +12869,6 @@
       "Title": "Use a deployment script to create Azure AD objects",
       "Description": "This sample uses a deployment script to create objects in Azure Active Directory.",
       "Path": "quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad",
-      "ResourceTypes": [
-        "Microsoft.Resources/deploymentScripts"
-      ],
-      "HasBicep": true
-    },
-    {
-      "Title": "Create a Deployment Script with complex inputs & outputs",
-      "Description": "This template demonstrates best practices for passing and reading complex inputs, outputs and logs to an Az CLI Deployment Script",
-      "Path": "quickstarts/microsoft.resources/deployment-script-azcli-inputs-outputs",
       "ResourceTypes": [
         "Microsoft.Resources/deploymentScripts"
       ],
@@ -14811,6 +14841,13 @@
     },
     {
       "Type": "Bicep",
+      "Title": "API Center Service",
+      "Description": "AVM Resource Module for API Center Service",
+      "ResourceType": "Microsoft.ApiCenter/services",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-center/service"
+    },
+    {
+      "Type": "Bicep",
       "Title": "API Management Service",
       "Description": "AVM Resource Module for API Management Service",
       "ResourceType": "Microsoft.ApiManagement/service",
@@ -14829,6 +14866,20 @@
       "Description": "AVM Child Module for API Management Service - API Diagnostics",
       "ResourceType": "Microsoft.ApiManagement/service/apis/diagnostics",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/api/diagnostics"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - API - Operation",
+      "Description": "AVM Child Module for API Management Service - API - Operation",
+      "ResourceType": "Microsoft.ApiManagement/service/apis/operations",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/api/operation"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - API - Operation - Policy",
+      "Description": "AVM Child Module for API Management Service - API - Operation - Policy",
+      "ResourceType": "Microsoft.ApiManagement/service/apis/operations/policies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/api/operation/policy"
     },
     {
       "Type": "Bicep",
@@ -14864,6 +14915,13 @@
       "Description": "AVM Child Module for API Management Service - Cache",
       "ResourceType": "Microsoft.ApiManagement/service/caches",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/cache"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Diagnostics",
+      "Description": "AVM Child Module for API Management Service - Diagnostics",
+      "ResourceType": "Microsoft.ApiManagement/service/diagnostics",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/diagnostics"
     },
     {
       "Type": "Bicep",
@@ -14923,10 +14981,136 @@
     },
     {
       "Type": "Bicep",
+      "Title": "API Management Service - Product - Policy",
+      "Description": "AVM Child Module for API Management Service - Product - Policy",
+      "ResourceType": "Microsoft.ApiManagement/service/products/policies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/product/policy"
+    },
+    {
+      "Type": "Bicep",
       "Title": "API Management Service - Subscription",
       "Description": "AVM Child Module for API Management Service - Subscription",
       "ResourceType": "Microsoft.ApiManagement/service/subscriptions",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/subscription"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspaces",
+      "Description": "AVM Child Module for API Management Service - Workspaces",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - API",
+      "Description": "AVM Child Module for API Management Service - Workspace - API",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/apis",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/api"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - API - Diagnostics",
+      "Description": "AVM Child Module for API Management Service - Workspace - API - Diagnostics",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/apis/diagnostics",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/api/diagnostics"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - API - Operation",
+      "Description": "AVM Child Module for API Management Service - Workspace - API - Operation",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/apis/operations",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/api/operation"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - API - Operation - Policy",
+      "Description": "AVM Child Module for API Management Service - Workspace - API - Operation - Policy",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/apis/operations/policies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/api/operation/policy"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - API - Policy",
+      "Description": "AVM Child Module for API Management Service - Workspace - API - Policy",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/apis/policies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/api/policy"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - API Version Set",
+      "Description": "AVM Child Module for API Management Service - Workspace - API Version Set",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/apiVersionSets",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/api-version-set"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - Backend",
+      "Description": "AVM Child Module for API Management Service - Workspace - Backend",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/backends",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/backend"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - Diagnostics",
+      "Description": "AVM Child Module for API Management Service - Workspace - Diagnostics",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/diagnostics",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/diagnostics"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - Logger",
+      "Description": "AVM Child Module for API Management Service - Workspace - Logger",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/loggers",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/logger"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - Named Value",
+      "Description": "AVM Child Module for API Management Service - Workspace - Named Value",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/namedValues",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/named-value"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - Policy",
+      "Description": "AVM Child Module for API Management Service - Workspace - Policy",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/policies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/policy"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - Product",
+      "Description": "AVM Child Module for API Management Service - Workspace - Product",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/products",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/product"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - Product - Api Link",
+      "Description": "AVM Child Module for API Management Service - Workspace - Product - Api Link",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/products/apiLinks",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/product/api-link"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - Product - Group Link",
+      "Description": "AVM Child Module for API Management Service - Workspace - Product - Group Link",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/products/groupLinks",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/product/group-link"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - Product - Policy",
+      "Description": "AVM Child Module for API Management Service - Workspace - Product - Policy",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/products/policies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/product/policy"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "API Management Service - Workspace - Subscription",
+      "Description": "AVM Child Module for API Management Service - Workspace - Subscription",
+      "ResourceType": "Microsoft.ApiManagement/service/workspaces/subscriptions",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/api-management/service/workspace/subscription"
     },
     {
       "Type": "Bicep",
@@ -15616,6 +15800,41 @@
     },
     {
       "Type": "Bicep",
+      "Title": "DB for MySQL Flexible Server - Administrator",
+      "Description": "AVM Child Module for DB for MySQL Flexible Server - Administrator",
+      "ResourceType": "Microsoft.DBforMySQL/flexibleServers/administrators",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/db-for-my-sql/flexible-server/administrator"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "DB for MySQL Flexible Server - Advanced Threat Protection",
+      "Description": "AVM Child Module for DB for MySQL Flexible Server - Advanced Threat Protection",
+      "ResourceType": "Microsoft.DBforMySQL/flexibleServers/advancedThreatProtectionSettings",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/db-for-my-sql/flexible-server/advanced-threat-protection"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "DB for MySQL Flexible Server - Configuration",
+      "Description": "AVM Child Module for DB for MySQL Flexible Server - Configuration",
+      "ResourceType": "Microsoft.DBforMySQL/flexibleServers/configurations",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/db-for-my-sql/flexible-server/configuration"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "DB for MySQL Flexible Server - Database",
+      "Description": "AVM Child Module for DB for MySQL Flexible Server - Database",
+      "ResourceType": "Microsoft.DBforMySQL/flexibleServers/databases",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/db-for-my-sql/flexible-server/database"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "DB for MySQL Flexible Server - Firewall Rule",
+      "Description": "AVM Child Module for DB for MySQL Flexible Server - Firewall Rule",
+      "ResourceType": "Microsoft.DBforMySQL/flexibleServers/firewallRules",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/db-for-my-sql/flexible-server/firewall-rule"
+    },
+    {
+      "Type": "Bicep",
       "Title": "DB for Postgre SQL Flexible Server",
       "Description": "AVM Resource Module for DB for Postgre SQL Flexible Server",
       "ResourceType": "Microsoft.DBforPostgreSQL/flexibleServers",
@@ -15903,6 +16122,27 @@
     },
     {
       "Type": "Bicep",
+      "Title": "Elastic SAN - Volume Group",
+      "Description": "AVM Child Module for Elastic SAN - Volume Group",
+      "ResourceType": "Microsoft.ElasticSan/elasticSans/volumegroups",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/elastic-san/elastic-san/volume-group"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Elastic SAN - Volume Group - Snapshot",
+      "Description": "AVM Child Module for Elastic SAN - Volume Group - Snapshot",
+      "ResourceType": "Microsoft.ElasticSan/elasticSans/volumegroups/snapshots",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/elastic-san/elastic-san/volume-group/snapshot"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Elastic SAN - Volume Group - Volume",
+      "Description": "AVM Child Module for Elastic SAN - Volume Group - Volume",
+      "ResourceType": "Microsoft.ElasticSan/elasticSans/volumegroups/volumes",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/elastic-san/elastic-san/volume-group/volume"
+    },
+    {
+      "Type": "Bicep",
       "Title": "Event Grid Domain",
       "Description": "AVM Resource Module for Event Grid Domain",
       "ResourceType": "Microsoft.EventGrid/domains",
@@ -15984,6 +16224,13 @@
       "Description": "AVM Resource Module for Event Grid System Topic",
       "ResourceType": "Microsoft.EventGrid/systemTopics",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/event-grid/system-topic"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Event Grid System Topic - Event Subscription",
+      "Description": "AVM Child Module for Event Grid System Topic - Event Subscription",
+      "ResourceType": "Microsoft.EventGrid/systemTopics/eventSubscriptions",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/event-grid/system-topic/event-subscription"
     },
     {
       "Type": "Bicep",
@@ -16155,6 +16402,13 @@
     },
     {
       "Type": "Bicep",
+      "Title": "Application Insight - Linked Storage Account",
+      "Description": "AVM Child Module for Application Insight - Linked Storage Account",
+      "ResourceType": "Microsoft.Insights/components/linkedStorageAccounts",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/insights/component/linked-storage-account"
+    },
+    {
+      "Type": "Bicep",
       "Title": "Data Collection Endpoint",
       "Description": "AVM Resource Module for Data Collection Endpoint",
       "ResourceType": "Microsoft.Insights/dataCollectionEndpoints",
@@ -16187,6 +16441,13 @@
       "Description": "AVM Resource Module for Azure Monitor Private Link Scope",
       "ResourceType": "Microsoft.Insights/privateLinkScopes",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/insights/private-link-scope"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure Monitor Private Link Scope - Scoped Resource",
+      "Description": "AVM Child Module for Azure Monitor Private Link Scope - Scoped Resource",
+      "ResourceType": "Microsoft.Insights/privateLinkScopes/scopedResources",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/insights/private-link-scope/scoped-resource"
     },
     {
       "Type": "Bicep",
@@ -16575,64 +16836,78 @@
     },
     {
       "Type": "Bicep",
-      "Title": "Public DNS Zone - Aaaa",
-      "Description": "AVM Child Module for Public DNS Zone - Aaaa",
+      "Title": "Public DNS Zone - AAAA",
+      "Description": "AVM Child Module for Public DNS Zone - AAAA",
       "ResourceType": "Microsoft.Network/dnsZones/AAAA",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/dns-zone/aaaa"
     },
     {
       "Type": "Bicep",
-      "Title": "Public DNS Zone - Caa",
-      "Description": "AVM Child Module for Public DNS Zone - Caa",
+      "Title": "Public DNS Zone - CAA",
+      "Description": "AVM Child Module for Public DNS Zone - CAA",
       "ResourceType": "Microsoft.Network/dnsZones/CAA",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/dns-zone/caa"
     },
     {
       "Type": "Bicep",
-      "Title": "Public DNS Zone - Cname",
-      "Description": "AVM Child Module for Public DNS Zone - Cname",
+      "Title": "Public DNS Zone - CNAME",
+      "Description": "AVM Child Module for Public DNS Zone - CNAME",
       "ResourceType": "Microsoft.Network/dnsZones/CNAME",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/dns-zone/cname"
     },
     {
       "Type": "Bicep",
-      "Title": "Public DNS Zone - Mx",
-      "Description": "AVM Child Module for Public DNS Zone - Mx",
+      "Title": "Public DNS Zone - DNSSecConfig",
+      "Description": "AVM Child Module for Public DNS Zone - DNSSecConfig",
+      "ResourceType": "Microsoft.Network/dnsZones/dnssecConfigs",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/dns-zone/dnssec-config"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Public DNS Zone - DS",
+      "Description": "AVM Child Module for Public DNS Zone - DS",
+      "ResourceType": "Microsoft.Network/dnsZones/DS",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/dns-zone/ds"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Public DNS Zone - MX",
+      "Description": "AVM Child Module for Public DNS Zone - MX",
       "ResourceType": "Microsoft.Network/dnsZones/MX",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/dns-zone/mx"
     },
     {
       "Type": "Bicep",
-      "Title": "Public DNS Zone - Ns",
-      "Description": "AVM Child Module for Public DNS Zone - Ns",
+      "Title": "Public DNS Zone - NS",
+      "Description": "AVM Child Module for Public DNS Zone - NS",
       "ResourceType": "Microsoft.Network/dnsZones/NS",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/dns-zone/ns"
     },
     {
       "Type": "Bicep",
-      "Title": "Public DNS Zone - Ptr",
-      "Description": "AVM Child Module for Public DNS Zone - Ptr",
+      "Title": "Public DNS Zone - PTR",
+      "Description": "AVM Child Module for Public DNS Zone - PTR",
       "ResourceType": "Microsoft.Network/dnsZones/PTR",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/dns-zone/ptr"
     },
     {
       "Type": "Bicep",
-      "Title": "Public DNS Zone - Soa",
-      "Description": "AVM Child Module for Public DNS Zone - Soa",
+      "Title": "Public DNS Zone - SOA",
+      "Description": "AVM Child Module for Public DNS Zone - SOA",
       "ResourceType": "Microsoft.Network/dnsZones/SOA",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/dns-zone/soa"
     },
     {
       "Type": "Bicep",
-      "Title": "Public DNS Zone - Srv",
-      "Description": "AVM Child Module for Public DNS Zone - Srv",
+      "Title": "Public DNS Zone - SRV",
+      "Description": "AVM Child Module for Public DNS Zone - SRV",
       "ResourceType": "Microsoft.Network/dnsZones/SRV",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/dns-zone/srv"
     },
     {
       "Type": "Bicep",
-      "Title": "Public DNS Zone - Txt",
-      "Description": "AVM Child Module for Public DNS Zone - Txt",
+      "Title": "Public DNS Zone - TXT",
+      "Description": "AVM Child Module for Public DNS Zone - TXT",
       "ResourceType": "Microsoft.Network/dnsZones/TXT",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/dns-zone/txt"
     },
@@ -16736,6 +17011,76 @@
     },
     {
       "Type": "Bicep",
+      "Title": "Network Manager - Connectivity Configuration",
+      "Description": "AVM Child Module for Network Manager - Connectivity Configuration",
+      "ResourceType": "Microsoft.Network/networkManagers/connectivityConfigurations",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/network-manager/connectivity-configuration"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Network Manager - Network Group",
+      "Description": "AVM Child Module for Network Manager - Network Group",
+      "ResourceType": "Microsoft.Network/networkManagers/networkGroups",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/network-manager/network-group"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Network Manager - Network Group - Static Member",
+      "Description": "AVM Child Module for Network Manager - Network Group - Static Member",
+      "ResourceType": "Microsoft.Network/networkManagers/networkGroups/staticMembers",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/network-manager/network-group/static-member"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Network Manager - Routing Configuration",
+      "Description": "AVM Child Module for Network Manager - Routing Configuration",
+      "ResourceType": "Microsoft.Network/networkManagers/routingConfigurations",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/network-manager/routing-configuration"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Network Manager - Routing Configuration - Rule Collection",
+      "Description": "AVM Child Module for Network Manager - Routing Configuration - Rule Collection",
+      "ResourceType": "Microsoft.Network/networkManagers/routingConfigurations/ruleCollections",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/network-manager/routing-configuration/rule-collection"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Network Manager - Routing Configuration - Rule Collection - Rule",
+      "Description": "AVM Child Module for Network Manager - Routing Configuration - Rule Collection - Rule",
+      "ResourceType": "Microsoft.Network/networkManagers/routingConfigurations/ruleCollections/rules",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/network-manager/routing-configuration/rule-collection/rule"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Network Manager - Scope Connection",
+      "Description": "AVM Child Module for Network Manager - Scope Connection",
+      "ResourceType": "Microsoft.Network/networkManagers/scopeConnections",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/network-manager/scope-connection"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Network Manager - Security Admin Configuration",
+      "Description": "AVM Child Module for Network Manager - Security Admin Configuration",
+      "ResourceType": "Microsoft.Network/networkManagers/securityAdminConfigurations",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/network-manager/security-admin-configuration"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Network Manager - Security Admin Configuration - Rule Collection",
+      "Description": "AVM Child Module for Network Manager - Security Admin Configuration - Rule Collection",
+      "ResourceType": "Microsoft.Network/networkManagers/securityAdminConfigurations/ruleCollections",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/network-manager/security-admin-configuration/rule-collection"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Network Manager - Security Admin Configuration - Rule Coll - Rule",
+      "Description": "AVM Child Module for Network Manager - Security Admin Configuration - Rule Coll - Rule",
+      "ResourceType": "Microsoft.Network/networkManagers/securityAdminConfigurations/ruleCollections/rules",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/network-manager/security-admin-configuration/rule-collection/rule"
+    },
+    {
+      "Type": "Bicep",
       "Title": "Network Security Group",
       "Description": "AVM Resource Module for Network Security Group",
       "ResourceType": "Microsoft.Network/networkSecurityGroups",
@@ -16747,6 +17092,20 @@
       "Description": "AVM Resource Module for Network Security Perimeter",
       "ResourceType": "Microsoft.Network/networkSecurityPerimeters",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/network-security-perimeter"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Network Security Perimeter - Profile",
+      "Description": "AVM Child Module for Network Security Perimeter - Profile",
+      "ResourceType": "Microsoft.Network/networkSecurityPerimeters/profiles",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/network-security-perimeter/profile"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Network Security Perimeter - Profile - Access Rule",
+      "Description": "AVM Child Module for Network Security Perimeter - Profile - Access Rule",
+      "ResourceType": "Microsoft.Network/networkSecurityPerimeters/profiles/accessRules",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/network-security-perimeter/profile/access-rule"
     },
     {
       "Type": "Bicep",
@@ -16960,6 +17319,13 @@
     },
     {
       "Type": "Bicep",
+      "Title": "Virtual Network Gateway - Nat Rule",
+      "Description": "AVM Child Module for Virtual Network Gateway - Nat Rule",
+      "ResourceType": "Microsoft.Network/virtualNetworkGateways/natRules",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/virtual-network-gateway/nat-rule"
+    },
+    {
+      "Type": "Bicep",
       "Title": "Virtual WAN",
       "Description": "AVM Resource Module for Virtual WAN",
       "ResourceType": "Microsoft.Network/virtualWans",
@@ -16971,6 +17337,20 @@
       "Description": "AVM Resource Module for VPN Gateway",
       "ResourceType": "Microsoft.Network/vpnGateways",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/vpn-gateway"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "VPN Gateway - Nat Rule",
+      "Description": "AVM Child Module for VPN Gateway - Nat Rule",
+      "ResourceType": "Microsoft.Network/vpnGateways/natRules",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/vpn-gateway/nat-rule"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "VPN Gateway - Vpn Connection",
+      "Description": "AVM Child Module for VPN Gateway - Vpn Connection",
+      "ResourceType": "Microsoft.Network/vpnGateways/vpnConnections",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/vpn-gateway/vpn-connection"
     },
     {
       "Type": "Bicep",
@@ -17086,6 +17466,62 @@
     },
     {
       "Type": "Bicep",
+      "Title": "Recovery Services Vault - Backup Config",
+      "Description": "AVM Child Module for Recovery Services Vault - Backup Config",
+      "ResourceType": "Microsoft.RecoveryServices/vaults/backupconfig",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/recovery-services/vault/backup-config"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Recovery Services Vault - Backup Fabric - Prot Cont - Protected Item",
+      "Description": "AVM Child Module for Recovery Services Vault - Backup Fabric - Prot Cont - Protected Item",
+      "ResourceType": "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/recovery-services/vault/backup-fabric/protection-container/protected-item"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Recovery Services Vault - Backup Policy",
+      "Description": "AVM Child Module for Recovery Services Vault - Backup Policy",
+      "ResourceType": "Microsoft.RecoveryServices/vaults/backupPolicies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/recovery-services/vault/backup-policy"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Recovery Services Vault - Replication Alert Setting",
+      "Description": "AVM Child Module for Recovery Services Vault - Replication Alert Setting",
+      "ResourceType": "Microsoft.RecoveryServices/vaults/replicationAlertSettings",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/recovery-services/vault/replication-alert-setting"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Recovery Services Vault - Replication Fabric",
+      "Description": "AVM Child Module for Recovery Services Vault - Replication Fabric",
+      "ResourceType": "Microsoft.RecoveryServices/vaults/replicationFabrics",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/recovery-services/vault/replication-fabric"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Recovery Services Vault - Repli Fabric - Repl Protection Container",
+      "Description": "AVM Child Module for Recovery Services Vault - Repli Fabric - Repl Protection Container",
+      "ResourceType": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/recovery-services/vault/replication-fabric/replication-protection-container"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Recovery Services Vault - Repl Fabric - Repl Prot Cont - Mapping",
+      "Description": "AVM Child Module for Recovery Services Vault - Repl Fabric - Repl Prot Cont - Mapping",
+      "ResourceType": "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/recovery-services/vault/replication-fabric/replication-protection-container/replication-protection-container-mapping"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Recovery Services Vault - Replication Policy",
+      "Description": "AVM Child Module for Recovery Services Vault - Replication Policy",
+      "ResourceType": "Microsoft.RecoveryServices/vaults/replicationPolicies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/recovery-services/vault/replication-policy"
+    },
+    {
+      "Type": "Bicep",
       "Title": "Relay Namespace",
       "Description": "AVM Resource Module for Relay Namespace",
       "ResourceType": "Microsoft.Relay/namespaces",
@@ -17160,6 +17596,13 @@
       "Description": "AVM Resource Module for Search Service",
       "ResourceType": "Microsoft.Search/searchServices",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/search/search-service"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Search Service - Shared Private Link Resource",
+      "Description": "AVM Child Module for Search Service - Shared Private Link Resource",
+      "ResourceType": "Microsoft.Search/searchServices/sharedPrivateLinkResources",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/search/search-service/shared-private-link-resource"
     },
     {
       "Type": "Bicep",
@@ -17258,6 +17701,13 @@
       "Description": "AVM Resource Module for Service Fabric Cluster",
       "ResourceType": "Microsoft.ServiceFabric/clusters",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/service-fabric/cluster"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Service Fabric Cluster - Application Type",
+      "Description": "AVM Child Module for Service Fabric Cluster - Application Type",
+      "ResourceType": "Microsoft.ServiceFabric/clusters/applicationTypes",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/service-fabric/cluster/application-type"
     },
     {
       "Type": "Bicep",
@@ -17373,6 +17823,13 @@
     },
     {
       "Type": "Bicep",
+      "Title": "Azure SQL Server - Auditing Setting",
+      "Description": "AVM Child Module for Azure SQL Server - Auditing Setting",
+      "ResourceType": "Microsoft.Sql/servers/auditingSettings",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/sql/server/auditing-setting"
+    },
+    {
+      "Type": "Bicep",
       "Title": "Azure SQL Database",
       "Description": "AVM Resource Module for Azure SQL Database",
       "ResourceType": "Microsoft.Sql/servers/databases",
@@ -17380,10 +17837,87 @@
     },
     {
       "Type": "Bicep",
+      "Title": "Azure SQL Server - Database - Backup Long Term Retention Policy",
+      "Description": "AVM Child Module for Azure SQL Server - Database - Backup Long Term Retention Policy",
+      "ResourceType": "Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/sql/server/database/backup-long-term-retention-policy"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure SQL Server - Database - Backup Short Term Retention Policy",
+      "Description": "AVM Child Module for Azure SQL Server - Database - Backup Short Term Retention Policy",
+      "ResourceType": "Microsoft.Sql/servers/databases/backupShortTermRetentionPolicies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/sql/server/database/backup-short-term-retention-policy"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure SQL Server - Elastic Pool",
+      "Description": "AVM Child Module for Azure SQL Server - Elastic Pool",
+      "ResourceType": "Microsoft.Sql/servers/elasticPools",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/sql/server/elastic-pool"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure SQL Server - Encryption Protector",
+      "Description": "AVM Child Module for Azure SQL Server - Encryption Protector",
+      "ResourceType": "Microsoft.Sql/servers/encryptionProtector",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/sql/server/encryption-protector"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure SQL Server - Failover Group",
+      "Description": "AVM Child Module for Azure SQL Server - Failover Group",
+      "ResourceType": "Microsoft.Sql/servers/failoverGroups",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/sql/server/failover-group"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure SQL Server - Firewall Rule",
+      "Description": "AVM Child Module for Azure SQL Server - Firewall Rule",
+      "ResourceType": "Microsoft.Sql/servers/firewallRules",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/sql/server/firewall-rule"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure SQL Server - Key",
+      "Description": "AVM Child Module for Azure SQL Server - Key",
+      "ResourceType": "Microsoft.Sql/servers/keys",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/sql/server/key"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure SQL Server - Security Alert Policy",
+      "Description": "AVM Child Module for Azure SQL Server - Security Alert Policy",
+      "ResourceType": "Microsoft.Sql/servers/securityAlertPolicies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/sql/server/security-alert-policy"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure SQL Server - Virtual Network Rule",
+      "Description": "AVM Child Module for Azure SQL Server - Virtual Network Rule",
+      "ResourceType": "Microsoft.Sql/servers/virtualNetworkRules",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/sql/server/virtual-network-rule"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure SQL Server - Vulnerability Assessment",
+      "Description": "AVM Child Module for Azure SQL Server - Vulnerability Assessment",
+      "ResourceType": "Microsoft.Sql/servers/vulnerabilityAssessments",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/sql/server/vulnerability-assessment"
+    },
+    {
+      "Type": "Bicep",
       "Title": "Storage Account",
       "Description": "AVM Resource Module for Storage Account",
       "ResourceType": "Microsoft.Storage/storageAccounts",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Storage Account - Blob Service",
+      "Description": "AVM Child Module for Storage Account - Blob Service",
+      "ResourceType": "Microsoft.Storage/storageAccounts/blobServices",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account/blob-service"
     },
     {
       "Type": "Bicep",
@@ -17398,6 +17932,13 @@
       "Description": "AVM Child Module for Storage Account - Blob Container Immutability Policy",
       "ResourceType": "Microsoft.Storage/storageAccounts/blobServices/containers/immutabilityPolicies",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account/blob-service/container/immutability-policy"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Storage Account - File Service",
+      "Description": "AVM Child Module for Storage Account - File Service",
+      "ResourceType": "Microsoft.Storage/storageAccounts/fileServices",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account/file-service"
     },
     {
       "Type": "Bicep",
@@ -17422,10 +17963,38 @@
     },
     {
       "Type": "Bicep",
+      "Title": "Storage Account - Object Replication Policy",
+      "Description": "AVM Child Module for Storage Account - Object Replication Policy",
+      "ResourceType": "Microsoft.Storage/",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account/object-replication-policy"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Storage Account - Object Replication Policy - Policy",
+      "Description": "AVM Child Module for Storage Account - Object Replication Policy - Policy",
+      "ResourceType": "Microsoft.Storage/storageAccounts/objectReplicationPolicies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account/object-replication-policy/policy"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Storage Account - Queue Service",
+      "Description": "AVM Child Module for Storage Account - Queue Service",
+      "ResourceType": "Microsoft.Storage/storageAccounts/queueServices",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account/queue-service"
+    },
+    {
+      "Type": "Bicep",
       "Title": "Storage Account - Queue",
       "Description": "AVM Child Module for Storage Account - Queue",
       "ResourceType": "Microsoft.Storage/storageAccounts/queueServices/queues",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account/queue-service/queue"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Storage Account - Table Service",
+      "Description": "AVM Child Module for Storage Account - Table Service",
+      "ResourceType": "Microsoft.Storage/storageAccounts/tableServices",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account/table-service"
     },
     {
       "Type": "Bicep",
@@ -17447,6 +18016,48 @@
       "Description": "AVM Resource Module for Azure Synapse Analytics Workspace",
       "ResourceType": "Microsoft.Synapse/workspaces",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/synapse/workspace"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure Synapse Analytics Workspace - Administrator",
+      "Description": "AVM Child Module for Azure Synapse Analytics Workspace - Administrator",
+      "ResourceType": "Microsoft.Synapse/workspaces/administrators",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/synapse/workspace/administrator"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure Synapse Analytics Workspace - Big Data Pool",
+      "Description": "AVM Child Module for Azure Synapse Analytics Workspace - Big Data Pool",
+      "ResourceType": "Microsoft.Synapse/workspaces/bigDataPools",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/synapse/workspace/big-data-pool"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure Synapse Analytics Workspace - Firewall Rule",
+      "Description": "AVM Child Module for Azure Synapse Analytics Workspace - Firewall Rule",
+      "ResourceType": "Microsoft.Synapse/workspaces/firewallRules",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/synapse/workspace/firewall-rule"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure Synapse Analytics Workspace - Integration Runtime",
+      "Description": "AVM Child Module for Azure Synapse Analytics Workspace - Integration Runtime",
+      "ResourceType": "Microsoft.Synapse/workspaces/integrationRuntimes",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/synapse/workspace/integration-runtime"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure Synapse Analytics Workspace - Key",
+      "Description": "AVM Child Module for Azure Synapse Analytics Workspace - Key",
+      "ResourceType": "Microsoft.Synapse/workspaces/keys",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/synapse/workspace/key"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Azure Synapse Analytics Workspace - Sql Pool",
+      "Description": "AVM Child Module for Azure Synapse Analytics Workspace - Sql Pool",
+      "ResourceType": "Microsoft.Synapse/workspaces/sqlPools",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/synapse/workspace/sql-pool"
     },
     {
       "Type": "Bicep",
@@ -17485,6 +18096,13 @@
     },
     {
       "Type": "Bicep",
+      "Title": "Web/Function App - Basic Publishing Credentials Policy",
+      "Description": "AVM Child Module for Web/Function App - Basic Publishing Credentials Policy",
+      "ResourceType": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/site/basic-publishing-credentials-policy"
+    },
+    {
+      "Type": "Bicep",
       "Title": "Web Site Configuration",
       "Description": "AVM Child Module for Web Site Configuration",
       "ResourceType": "Microsoft.Web/sites/config",
@@ -17492,10 +18110,52 @@
     },
     {
       "Type": "Bicep",
+      "Title": "Web/Function App - Extension",
+      "Description": "AVM Child Module for Web/Function App - Extension",
+      "ResourceType": "Microsoft.Web/sites/extensions",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/site/extension"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Web/Function App - Hybrid Connection Namespace - Relay",
+      "Description": "AVM Child Module for Web/Function App - Hybrid Connection Namespace - Relay",
+      "ResourceType": "Microsoft.Web/sites/hybridConnectionNamespaces/relays",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/site/hybrid-connection-namespace/relay"
+    },
+    {
+      "Type": "Bicep",
       "Title": "Web Site Slot",
       "Description": "AVM Child Module for Web Site Slot",
       "ResourceType": "Microsoft.Web/sites/slots",
       "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/site/slot"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Web/Function App - Slot - Basic Publishing Credentials Policy",
+      "Description": "AVM Child Module for Web/Function App - Slot - Basic Publishing Credentials Policy",
+      "ResourceType": "Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/site/slot/basic-publishing-credentials-policy"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Web/Function App - Slot - Config",
+      "Description": "AVM Child Module for Web/Function App - Slot - Config",
+      "ResourceType": "Microsoft.Web/sites/slots/config",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/site/slot/config"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Web/Function App - Slot - Extension",
+      "Description": "AVM Child Module for Web/Function App - Slot - Extension",
+      "ResourceType": "Microsoft.Web/sites/slots/extensions",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/site/slot/extension"
+    },
+    {
+      "Type": "Bicep",
+      "Title": "Web/Function App - Slot - Hybrid Connection Namespace - Relay",
+      "Description": "AVM Child Module for Web/Function App - Slot - Hybrid Connection Namespace - Relay",
+      "ResourceType": "Microsoft.Web/sites/slots/hybridConnectionNamespaces/relays",
+      "RepoUrl": "https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/web/site/slot/hybrid-connection-namespace/relay"
     },
     {
       "Type": "Bicep",
@@ -17926,6 +18586,13 @@
     },
     {
       "Type": "Terraform",
+      "Title": "Key Vault Managed HSM",
+      "Description": "AVM Resource Module for Key Vault Managed HSM",
+      "ResourceType": "Microsoft.KeyVault/managedHSMs",
+      "RepoUrl": "https://github.com/Azure/terraform-azure-avm-res-keyvault-managedhsm"
+    },
+    {
+      "Type": "Terraform",
       "Title": "Kusto Clusters",
       "Description": "AVM Resource Module for Kusto Clusters",
       "ResourceType": "Microsoft.Kusto/clusters",
@@ -18108,6 +18775,13 @@
     },
     {
       "Type": "Terraform",
+      "Title": "Network Security Perimeter",
+      "Description": "AVM Resource Module for Network Security Perimeter",
+      "ResourceType": "Microsoft.Network/networkSecurityPerimeters",
+      "RepoUrl": "https://github.com/Azure/terraform-azapi-avm-res-network-networksecurityperimeter"
+    },
+    {
+      "Type": "Terraform",
       "Title": "Azure Network Watcher",
       "Description": "AVM Resource Module for Azure Network Watcher",
       "ResourceType": "Microsoft.Network/networkWatchers",
@@ -18241,6 +18915,13 @@
     },
     {
       "Type": "Terraform",
+      "Title": "Application Gateway for Containers (Traffic Controller)",
+      "Description": "AVM Resource Module for Application Gateway for Containers (Traffic Controller)",
+      "ResourceType": "Microsoft.ServiceNetworking/trafficControllers",
+      "RepoUrl": "https://github.com/Azure/terraform-azurerm-avm-res-servicenetworking-trafficcontroller"
+    },
+    {
+      "Type": "Terraform",
       "Title": "SQL Managed Instance",
       "Description": "AVM Resource Module for SQL Managed Instance",
       "ResourceType": "Microsoft.Sql/managedInstances",
@@ -18266,6 +18947,13 @@
       "Description": "AVM Resource Module for Storage Account",
       "ResourceType": "Microsoft.Storage/storageAccounts",
       "RepoUrl": "https://github.com/Azure/terraform-azurerm-avm-res-storage-storageaccount"
+    },
+    {
+      "Type": "Terraform",
+      "Title": "Synapse Workspace",
+      "Description": "AVM Resource Module for Synapse Workspace",
+      "ResourceType": "Microsoft.Synapse/workspaces",
+      "RepoUrl": "https://github.com/Azure/terraform-azurerm-avm-res-synapse-workspace"
     },
     {
       "Type": "Terraform",
